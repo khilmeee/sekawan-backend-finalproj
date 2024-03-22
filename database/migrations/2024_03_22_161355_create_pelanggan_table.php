@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('pelanggan', function (Blueprint $table) {
             $table->id('pelanggan_id');
-            $table->string('pelanggan_nama',150);
-            $table->string('pelanggan_alamat',200);
-            $table->char('pelanggan_notelp',13);
-            $table->string('pelanggan_email',100);
+            $table->string('pelanggan_nama',150)->nullable(false);
+            $table->string('pelanggan_alamat',200)->nullable(false);
+            $table->char('pelanggan_notelp',13)->nullable(false);
+            $table->string('pelanggan_email',100)->nullable(false);
             $table->timestamps();
         });
     }

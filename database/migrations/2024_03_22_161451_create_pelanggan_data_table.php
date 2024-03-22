@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('pelanggan_data', function (Blueprint $table) {
             $table->id('pelanggan_data_id');
-            $table->foreignId('pelanggan_data_pelanggan_id')->constrained('pelanggan','pelanggan_id');
-            $table->enum('pelanggan_data_jenis',['KTP','SIM']);
-            $table->string('pelanggan_data_file',255);
+            $table->foreignId('pelanggan_data_pelanggan_id')->constrained('pelanggan','pelanggan_id')->nullable(false);
+            $table->enum('pelanggan_data_jenis',['KTP','SIM'])->nullable(false);
+            $table->string('pelanggan_data_file',255)->nullable(false);
             $table->timestamps();
         });
     }

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('penyewaan', function (Blueprint $table) {
             $table->id('penyewaan_id');
-            $table->foreignId('penyewaan_pelanggan_id')->constrained('pelanggan','pelanggan_id');
-            $table->date('penyewaan_tglsewa');
-            $table->date('penyewaan_tglkembali');
-            $table->enum('penyewaan_sttspembayaran',['Lunas','Belum Dibayar','DP'])->default('Belum Dibayar');
-            $table->enum('penyewaan_sttskembali',['Sudah Kembali','Belum Kembali'])->default('Belum Kembali');
-            $table->integer('penyewaan_totalharga',);
+            $table->foreignId('penyewaan_pelanggan_id')->constrained('pelanggan','pelanggan_id')->nullable(false);
+            $table->date('penyewaan_tglsewa')->nullable(false);
+            $table->date('penyewaan_tglkembali')->nullable(false);
+            $table->enum('penyewaan_sttspembayaran',['Lunas','Belum Dibayar','DP'])->default('Belum Dibayar')->nullable(false);
+            $table->enum('penyewaan_sttskembali',['Sudah Kembali','Belum Kembali'])->default('Belum Kembali')->nullable(false);
+            $table->integer('penyewaan_totalharga')->nullable(false);
             $table->timestamps();
         });
     }

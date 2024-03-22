@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('alat', function (Blueprint $table) {
             $table->id('alat_id');
-            $table->foreignId('alat_kategori_id')->constrained('kategori','kategori_id');
-            $table->string('alat_nama',150);
-            $table->string('alat_deskripsi',255);
-            $table->integer('alat_hargaperhari');
-            $table->integer('alat_stok');
+            $table->foreignId('alat_kategori_id')->constrained('kategori','kategori_id')->nullable(false);
+            $table->string('alat_nama',150)->nullable(false);
+            $table->string('alat_deskripsi',255)->nullable(false);
+            $table->integer('alat_hargaperhari')->nullable(false);
+            $table->integer('alat_stok')->nullable(false);
             $table->timestamps();
         });
     }

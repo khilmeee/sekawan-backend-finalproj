@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kategoris', function (Blueprint $table) {
-            $table->id();
+        Schema::create('pelanggan_data', function (Blueprint $table) {
+            $table->id('pelanggan_data_id');
+            $table->foreignId('pelanggan_data_pelanggan_id')->constrained('pelanggan','pelanggan_id');
+            $table->enum('pelanggan_data_jenis',['KTP','SIM']);
+            $table->string('pelanggan_data_file',255);
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kategoris');
+        Schema::dropIfExists('pelanggan_data');
     }
 };
